@@ -2,28 +2,28 @@
 
 <?php
 session_start();
+//connect to database
+include("database.php");
+//check connection
+if ($db_connection->connect_error) {
+    die("Connection failed: " . $db_connection->connect_error);
+} 
+
+
 
 $sub_email = "root@root";
 $sub_password = "root";
 
-//var_dump(isset($_POST["logout"]));
-
-
+//user logs out
 if (isset($_POST["logout"])) {
 	$_SESSION["logged_in"] = false;
-			include('logged_out.html');
-
+		include('logged_out.html');
 }
 
 //User already logged in
  if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === true) {
 	?> <p>Welcome back</p> <?php
-	echo "heloo";
 	include('logout.html');
-
-
-	//user logs out
- 
 
 
 //Is the user trying to log in?
@@ -32,7 +32,9 @@ if (isset($_POST["logout"])) {
 	if  ($_POST['email'] === $sub_email && $_POST['password'] === $sub_password) {
 		$_SESSION["logged_in"] = true;
 		?> <p>Welcome</p> <?php 
-		include('logout.html'); 
+		include('logout.html');
+		//database test
+		//var_dump($result);
 
 		//user logs out
 		if (isset($_POST["logout"])) {
@@ -40,12 +42,10 @@ if (isset($_POST["logout"])) {
 			include('logged_out.html');
 		}
 
-
-
 //User is not logged in and submits invalid username/password
-  }	else if ($_SESSION["logged_in"] = false && ($sub_email !== ($_POST['email'])) || ($sub_password !== ($_POST['password']))) {
+ } else if ($_SESSION["logged_in"] = false && ($sub_email !== ($_POST['email'])) || ($sub_password !== ($_POST['password']))) {
 
-	?>	<p>Access Denied!</p> 
+		?><p>Access Denied!</p> 
 		<?php
 		include('form.html'); 
 		?>
@@ -57,8 +57,7 @@ if (isset($_POST["logout"])) {
 	}
 
 
-//$sub_email === $_POST['email'] && $sub_password === $_POST['password']) {
-//	$_SESSION["logged_in"] = true;
+
 } 
 else {
 	//var_dump($_SESSION);
@@ -66,6 +65,5 @@ else {
 		
 }
 
-//var_dump($_POST)
 ?>
 
