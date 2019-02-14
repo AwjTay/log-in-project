@@ -2,23 +2,29 @@
 
 <?php
 
+//session_start();
 
 $sub_email = "nigelcrompton@grimshawironworks";
 $sub_password = "goldstandard";
 
+//$validuser = $_SESSION["login"] === true;
+
+// if they have submitted the form
+	// if they have logged in correctly
+		// show a nice miessae
+	// else
+		// show an error
+		// show the form again
+// else
+	//show the form
+$loggedin = false;
+
 
 if ($sub_email === ($_POST['email']) && $sub_password === ($_POST['password'])) {
-	$validuser = true;
-}
-
-
-else {
-	$validuser = false;
-}
-
-if ($validuser) {
+	$loggedin = true;
 	?> <p>Welcome</p> <?php 
 }
+
 
 else {
 	?> <p>Access Denied!</p> 
