@@ -23,12 +23,12 @@ function verify_login_details($sub_email, $sub_password ) {
 	$clean_email = mysqli_real_escape_string($db_connection, $sub_email);
 
 	$query = "SELECT * FROM `users` WHERE `email` = '$clean_email';";
-	//var_dump($query);
+
 	$result = mysqli_query($db_connection, $query);
-	//var_dump($result);
+	
 	if (mysqli_num_rows($result) === 1) {
 		$row = mysqli_fetch_assoc($result);
-		//var_dump($row);
+		
 		if ($row["password"] === $sub_password) {
 			return true;
 		}

@@ -1,0 +1,15 @@
+
+.form {
+	display: flex;
+	flex-direction: column;
+	margin-right: 25vw;
+	margin-left: 25vw;
+}
+
+.form input {
+	margin-bottom: 5vw;
+	padding-bottom: 2vw; 
+	padding-top: 2vw;
+
+}
+
