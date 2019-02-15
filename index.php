@@ -8,9 +8,11 @@
 		<link rel="stylesheet" href="styles.css">
 	</head>
 
-<div class="front-wrapper">
 
 <h1>My awesome site!</h1>
+
+<a href="registration.php">Click here to register!</a>
+
 
 <?php
 //valid user and password to test: sam@yahoo.com / password
@@ -62,7 +64,6 @@ if (isset($_POST["logout"])) {
 
 ?>
 
-</div>
 <footer>
 	
 </footer>
