@@ -13,6 +13,8 @@
 <h1>My awesome site!</h1>
 
 <?php
+//valid user and password to test: sam@yahoo.com / password
+
 session_start();
 //connect to database
 include("database.php");
